@@ -13,7 +13,7 @@ if __name__ == "__main__":
     num_str = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 
                'eight', 'nine']
     ans = 0
-    for line in text.split('\n')[:1]:
+    for line in text.split('\n'):
         digits = []
         for i, c in enumerate(line):
             if c.isdigit():
