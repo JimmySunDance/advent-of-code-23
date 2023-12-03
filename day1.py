@@ -6,14 +6,11 @@
 # Consider your entire calibration document. What is the sum of all 
 # of the calibration values?
 
-if __name__ == "__main__":
-    with open('data/calibration_values.txt', 'r', encoding='utf-8') as f:
-        text = f.read()
-
+def numbers_numbers(lines: list[str]) -> int:
     num_str = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 
                'eight', 'nine']
     ans = 0
-    for line in text.split('\n'):
+    for line in lines:
         digits = []
         for i, c in enumerate(line):
             if c.isdigit():
@@ -23,5 +20,14 @@ if __name__ == "__main__":
                     digits.append(str(d+1))
         score = int(digits[0] + digits[-1])
         ans += score
-                
-    print(ans)
+
+    return ans
+
+
+def main() -> None:
+    with open('data/calibration_values.txt', 'r', encoding='utf-8') as f:
+        lines = f.readlines()
+    print(numbers_numbers(lines))
+
+if __name__ == "__main__":
+    main()

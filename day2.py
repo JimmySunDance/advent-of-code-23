@@ -7,14 +7,11 @@
 # with only 12 red cubes, 13 green cubes, and 14 blue cubes. What is the sum of
 # the IDs of those games?
 
-if __name__ == '__main__':
-    with open('data/game_runs.txt', 'r', encoding='utf-8') as f:
-        text = f.read()
-
+def play_the_game(lines:list[str]) -> tuple:
     red_max, green_max, blue_max = 12, 13, 14
     game1_ans, game2_ans = 0, 0
 
-    for i, line in enumerate(text.split('\n')):
+    for i, line in enumerate(lines):
         line = line.split(':')[1]
         draws = line.split(';')
 
@@ -34,7 +31,13 @@ if __name__ == '__main__':
         
         game2_ans += r*g*b
 
-print('Game 1: ', game1_ans)
-print('Game 2: ', game2_ans)
-            
+    return game1_ans, game2_ans
 
+def main() -> None:
+    with open('data/game_runs.txt', 'r', encoding='utf-8') as f:
+        text = f.readlines()
+    print(play_the_game(text))
+
+
+if __name__ == '__main__':
+    main()
