@@ -2,7 +2,7 @@
 
 # 1. part - Determine the number of ways you could beat the record in each 
 # race and multiply them together.
-import math
+import math as m
 
 def quad(a, b, c): 
     return [(-b + (b**2 - 4*a*c)**0.5) / (2*a), (-b - (b**2 - 4*a*c)**0.5) / (2*a)]
@@ -18,13 +18,12 @@ def main() -> tuple:
     total = 1
     for i, t in enumerate(times):
         r = quad(1, t, records[i])
-        total *= math.ceil(r[0]) - math.floor(r[1]) - 1
-
+        total *= m.ceil(r[0]) - m.floor(r[1]) - 1
 
     real_t = list_to_int(times)
     real_r = list_to_int(records)
     r = quad(1, -real_t, real_r)
-    final = math.ceil(r[0]) - math.floor(r[1]) - 1
+    final = m.ceil(r[0]) - m.floor(r[1]) - 1
 
     return (total, final)
 
