@@ -1,4 +1,4 @@
-# Day 8 of the advent of code 2023
+# Day eight of the advent of code 2023
 
 import math as m
 
