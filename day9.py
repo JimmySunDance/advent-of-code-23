@@ -1,4 +1,7 @@
 # Day nine of the advent of code 2023
+# 
+# Calculate the next number in a sequence
+# Calculate the previous number in a sequence
 
 
 def next_term(line):
