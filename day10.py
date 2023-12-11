@@ -1,4 +1,4 @@
-# Day 10 of the advent of code 2023
+# Day ten of the advent of code 2023
 #
 # Find your way around the loop.
 
