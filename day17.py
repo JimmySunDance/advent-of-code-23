@@ -10,12 +10,13 @@ def main() -> None:
     city = [list(map(int, l.strip())) for l in open('data/crucible_path.txt')]
 
     seen = set()
-    # heat value 0 - start (0, 0) - moving (0, 0) - steps taken 0
+    # heat loss 0 - start (0, 0) - moving (0, 0) - steps taken 0
     pq = [(0, 0, 0, 0, 0, 0)]
 
     while pq:
         hl, r, c, dr, dc, n = heappop(pq)
 
+        # Destination is the bottom right corner
         # remove last check for part 1
         if r == len(city) - 1 and c == len(city[0]) - 1 and n >= 4:
             print(hl)
