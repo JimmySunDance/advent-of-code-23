@@ -1,4 +1,4 @@
-# Day 18 of the advent of code 2023
+# Day eighteen of the advent of code 2023
 #
 # Shoelace formula
 # abs(Sum(x(y_i+1 - y_i-1))) / 2
