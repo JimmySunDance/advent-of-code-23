@@ -44,38 +44,38 @@ def main() -> None:
             if output in modules and modules[output].m_type == '&':
                 modules[output].memory[name] = 'low'
 
+    ### Uncomment for part 1 answer
+    low_pulse, high_pulse = 0, 0
+    for _ in range(1000):
+        low_pulse += 1
+        # origin, target, pulse
+        q = deque([('broadcaster', x, 'low') for x in broadcast_targets])
 
-### Uncomment for part 1 answer
-    # low_pulse, high_pulse = 0, 0
-    # for _ in range(1000):
-    #     low_pulse += 1
-    #     # origin, target, pulse
-    #     q = deque([('broadcaster', x, 'low') for x in broadcast_targets])
+        while q:
+            origin, target, pulse = q.popleft()
+            if pulse == 'low':
+                low_pulse += 1
+            else:
+                high_pulse += 1
 
-    #     while q:
-    #         origin, target, pulse = q.popleft()
-    #         if pulse == 'low':
-    #             low_pulse += 1
-    #         else:
-    #             high_pulse += 1
-
-    #         if target not in modules:
-    #             continue
+            if target not in modules:
+                continue
                 
-    #         module = modules[target]
-    #         if module.m_type == '%':
-    #             if pulse == 'low':
-    #                 module.memory = 'on' if module.memory == 'off' else 'off'
-    #                 outgoing = 'hi' if module.memory == 'on' else 'low'
-    #                 for x in module.outputs:
-    #                     q.append(((module.name, x, outgoing)))
-    #         else:
-    #             module.memory[origin] = pulse
-    #             outgoing = 'low' if all(x == 'hi' for x in module.memory.values()) else 'hi'
-    #             for x in module.outputs:
-    #                 q.append(((module.name, x, outgoing)))
+            module = modules[target]
+            if module.m_type == '%':
+                if pulse == 'low':
+                    module.memory = 'on' if module.memory == 'off' else 'off'
+                    outgoing = 'hi' if module.memory == 'on' else 'low'
+                    for x in module.outputs:
+                        q.append(((module.name, x, outgoing)))
+            else:
+                module.memory[origin] = pulse
+                outgoing = 'low' if all(x == 'hi' for x in module.memory.values()) else 'hi'
+                for x in module.outputs:
+                    q.append(((module.name, x, outgoing)))
 
-    # print(f'Part 1: {low_pulse*high_pulse}')
+    print(f'Part 1: {low_pulse*high_pulse}')
+
 
 
     # asserts there must be 1 case of rx
