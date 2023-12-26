@@ -1,4 +1,4 @@
-# Day 23 of the advent of code 2023
+# Day twenty three of the advent of code 2023
 #
 # Using Edge contraction
 # https://en.wikipedia.org/wiki/Edge_contraction
