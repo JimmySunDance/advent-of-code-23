@@ -1,4 +1,4 @@
-# Dat twenty two of eh advent of code 2023
+# Day twenty two of the advent of code 2023
 #
 #
 from collections import deque

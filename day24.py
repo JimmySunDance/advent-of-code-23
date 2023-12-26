@@ -1,4 +1,4 @@
-# # Day 24 of the advent of code 2023
+# # Day twenty four of the advent of code 2023
 # #
 # #
 import sympy
